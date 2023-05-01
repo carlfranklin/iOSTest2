@@ -1,0 +1,15 @@
+﻿@page "/"
+@inject IAudioManager audioManager
+
+<button @onclick="Play">Play</button>
+
+
+@code {
+
+    async void Play()
+    {
+        var audioPlayer = audioManager.CreatePlayer(await FileSystem.OpenAppPackageFileAsync("congrats.mp3"));
+
+        audioPlayer.Play();
+    }
+}
